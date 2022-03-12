@@ -6,7 +6,7 @@ class transaction_card extends StatelessWidget {
   final List<transaction> transactions;
   transaction_card(this.transactions);
   @override
-  Widget build(BuildContext) {
+  Widget build(BuildContext context) {
     return Container(
         height: 400,
         child: ListView.builder(
@@ -18,12 +18,13 @@ class transaction_card extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.purple, width: 2.0)),
+                      border: Border.all(
+                          color: Theme.of(context).primaryColor, width: 2.0)),
                   child: Text("Rs " + transactions[index].price.toString(),
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
-                          color: Colors.purple)),
+                          color: Theme.of(context).primaryColor)),
                 ),
                 Container(
                   child: Column(

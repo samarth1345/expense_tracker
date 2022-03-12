@@ -1,14 +1,22 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Addtransaction extends StatelessWidget {
-  final tempamount = TextEditingController();
-  final tempitem = TextEditingController();
+class Addtransaction extends StatefulWidget {
   final Function addtransaction;
   Addtransaction({this.addtransaction});
+
+  @override
+  _AddtransactionState createState() => _AddtransactionState();
+}
+
+class _AddtransactionState extends State<Addtransaction> {
+  final tempamount = TextEditingController();
+
+  final tempitem = TextEditingController();
+
   void adddata() {
     if (tempitem.text.isEmpty || int.parse(tempamount.text) <= 0) return;
-    addtransaction(tempitem.text, int.parse(tempamount.text));
+    widget.addtransaction(tempitem.text, int.parse(tempamount.text));
+    Navigator.of(context).maybePop();
   }
 
   @override
